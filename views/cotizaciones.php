@@ -43,6 +43,8 @@
     <h2 class="text-center">COTIZACIONES</h2>
     
     <div class="content">
+
+        
         <div class="search-bar">
             <input type="text" placeholder="Buscar...">
             <button class="search-button"><i class="fas fa-search"></i></button>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Principal</title>
     <link rel="stylesheet" href="/css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
     <script src="/Js/estilos.js"></script>
 </head>
@@ -39,21 +40,35 @@
         </ul>
     </div>
 
-    <div class="content">
-        <h2 class="text-center">MENU PRINCIPAL</h2>
 
+    <h2 class="text-center">MENU PRINCIPAL</h2>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button class="search-button"><i class="fas fa-search"></i></button>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="content" role="group" aria-label="First group">
             <button class="pdf-button"><i class="fas fa-file-pdf"></i></button>
             <button class="excel-button"><i class="fas fa-file-excel"></i></button>
             <button class="print-button"><i class="fas fa-print"></i></button>
         </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <!--div class="content" style="text-align: left">
+        <button class="pdf-button"><i class="fas fa-file-pdf"></i></button>
+        <button class="excel-button"><i class="fas fa-file-excel"></i></button>
+        <button class="print-button"><i class="fas fa-print"></i></button>
+
+    </!--div>
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar...">
+        <button class="search-button"><i class="fas fa-search"></i></button>
+    </div>
 
 
 
-        <!--div class="table-container">
+    <!--div class="table-container">
             <table>
                 <thead>
                     <tr>
@@ -67,7 +82,7 @@
                     </tr>
                 </thead>
                 <tbody-->
-                    <!--tr>
+    <!--tr>
                         <td>1</td>
                         <td>Proveedor 1</td>
                         <td>Departamento 1</td>
@@ -96,17 +111,17 @@
 
                         </td>
                     </tr-->
-                    <!-- Agregar más filas de solicitudes aquí -->
-                <!--/tbody>
+    <!-- Agregar más filas de solicitudes aquí -->
+    <!--/tbody>
             </table>
             <div class="content">
                 <div class="table-container">
                     <table>
                         <! Contenido de la tabla -->
-                    </table>
-                </div>
+    </table>
+    </div>
 
-                <!--?php
+    <!--?php
                 // Datos de ejemplo para la paginación
                 $totalSolicitudes = 50; // Total de registros en la base de datos
                 $registrosPorPagina = 10; // Número de registros por página
@@ -128,7 +143,7 @@
                 // }
                 ?-->
 
-                <!---div class="pagination">
+    <!---div class="pagination">
                     <!?php
                     // Botón de retroceso "<"
                     //if ($paginaActual > 1) {
@@ -145,10 +160,11 @@
                         echo '<a href="?page=' . ($paginaActual + 1) . '"><i class="fas fa-chevron-right"></i></a>';
                     //}
                     ?-->
-                </!---div>
-            </div>
-        </!--div>
+    </!---div>
     </div>
+    </!--div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
 </html>

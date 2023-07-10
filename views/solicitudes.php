@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitudes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/estilos.css">
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
     <script src="/Js/estilos.js"></script>
@@ -40,20 +41,23 @@
         </ul>
     </div>
 
-    <div class="content">
-        <h2 class="text-center">SOLICITUDES DE COMPRA</h2>
 
+    <h2 class="text-center">SOLICITUDES DE COMPRA</h2>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button class="search-button"><i class="fas fa-search"></i></button>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="content" role="group" aria-label="First group">
             <button class="pdf-button"><i class="fas fa-file-pdf"></i></button>
             <button class="excel-button"><i class="fas fa-file-excel"></i></button>
             <button class="print-button"><i class="fas fa-print"></i></button>
+            <button class="plus-button"><i class="fas fa-plus"></i></button>
         </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
 
-
-
+    <div class="content">
         <div class="table-container">
             <table>
                 <thead>
@@ -69,38 +73,47 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Fecha 1</td>
-                        <td>Monto 1</td>
-                        <td>Creado por 1</td>
-                        <td>Fec creacion 1</td>
-                        <td>Modificado por 1</td>
-                        <td>Fec Modificacion 1</td>
-                        <td>
-                            <button class="styled-button edit-button"><i class="fas fa-edit"></i></button>
-                            <button class="styled-button delete-button"><i class="fas fa-trash"></i></button>
-                            <button class="styled-button view-button"><i class="fas fa-eye"></i></button>
+                    <?php
+                    $server = "localhost";
+                    $username = "root";
+                    $password = "rads123";
+                    $dbname = "gestion_compras";
+                    // Create connection
+                    $conn = new mysqli($server, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    echo "Connected successfully";
 
-                        </td>
-                    </tr>
+                    $sql = "SELECT * FROM tbl_solicitud_compra";
+                    $result = $conn->query($sql);
 
-                    <tr>
-                        <td>1</td>
-                        <td>Fecha 2</td>
-                        <td>Monto 2</td>
-                        <td>Creado por 2</td>
-                        <td>Fec creacion 2</td>
-                        <td>Modificado por 2</td>
-                        <td>Fec Modificacion 2</td>
-                        <td>
-                            <button class="styled-button edit-button"><i class="fas fa-edit"></i></button>
-                            <button class="styled-button delete-button"><i class="fas fa-trash"></i></button>
-                            <button class="styled-button view-button"><i class="fas fa-eye"></i></button>
+                    if (!$result) {
+                        die("Invalid Query:" . $connection->error);
+                    }
 
-                        </td>
-                    </tr>
-                    <!-- Agregar más filas de solicitudes aquí -->
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "
+                        <tr>
+                            <td>$row[NUMERO_SOLICITUD]</td>
+                            <td>$row[FECHA_SOLICITUD]</td>
+                            <td>$row[MONTO_TOTAL]</td>
+                            <td>$row[CREADO_POR]</td>
+                            <td>$row[FECHA_CREACION]</td>
+                            <td>$row[MODIFICADO_POR]</td>
+                            <td>$row[FECHA_MODIFICACION]</td>
+                            <td>
+                                <button class='btn btn-warning'><i class='fas fa-edit'></i></button>
+                                <button class='btn btn-danger'><i class='fas fa-trash'></i></button>
+                                <button class='btn btn-success'><i class='fas fa-eye'></i></button>
+                            </td>
+                        </tr>
+                        ";
+                    }
+                    ?>
+
+
                 </tbody>
             </table>
             <div class="content">
@@ -153,6 +166,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
