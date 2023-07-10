@@ -8,7 +8,7 @@
     <title>Cotizaciones</title>
     <link rel="stylesheet" href="/css/estilos_cotizacion.css">
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
-    <script src="/estilos.js"></script>
+    <script src="/Js/estilos.js"></script>
 </head>
 
 
