@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Principal</title>
+    <title>Solicitudes</title>
     <link rel="stylesheet" href="/css/estilos.css">
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
     <script src="/estilos.js"></script>
@@ -18,13 +18,14 @@
             <element class="logo">
                 <img src="/imagen/ihci.jfif">
             </element>
+
             <button class="menu-toggle" onclick="toggleSidebar()">&#9776;
                 <span class="menu-icon"></span>
             </button>
         </div>
         <ul class="menu">
-            <li><a href="#"><i class="fas fa-home"></i><span> Inicio </span></a></li>
-            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
+            <li><a href="/index.php"><i class="fas fa-home"></i><span> Inicio</span></a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
             <li><a href="/views/crear_solicitud.php"><i class="fas fa-plus"></i><span> Crear Solicitud</span></a></li>
             <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span> Cotizaciones</span></a></li>
             <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span> Proveedores</span></a></li>
@@ -40,7 +41,7 @@
     </div>
 
     <div class="content">
-        <h2 class="text-center">MENU PRINCIPAL</h2>
+        <h2 class="text-center">SOLICITUDES DE COMPRA</h2>
 
 
         <div class="search-bar">
@@ -53,60 +54,63 @@
 
 
 
-        <!--div class="table-container">
+        <div class="table-container">
             <table>
                 <thead>
                     <tr>
                         <th>N Solicitud</th>
-                        <th>Proveedor</th>
-                        <th>Departamento</th>
-                        <th>Descripción</th>
-                        <th>Fecha de Aprobación</th>
-                        <th>Monto</th>
-                        <th>Acciones</th>
+                        <th>Fecha</th>
+                        <th>Monto Total</th>
+                        <th>Creado por</th>
+                        <th>Fec Creacion</th>
+                        <th>Modificado por</th>
+                        <th>Fec Modificacion</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
-                <tbody-->
-                    <!--tr>
+                <tbody>
+                    <tr>
                         <td>1</td>
-                        <td>Proveedor 1</td>
-                        <td>Departamento 1</td>
-                        <td>Descripción 1</td>
                         <td>Fecha 1</td>
                         <td>Monto 1</td>
+                        <td>Creado por 1</td>
+                        <td>Fec creacion 1</td>
+                        <td>Modificado por 1</td>
+                        <td>Fec Modificacion 1</td>
                         <td>
                             <button class="styled-button edit-button"><i class="fas fa-edit"></i></button>
                             <button class="styled-button delete-button"><i class="fas fa-trash"></i></button>
                             <button class="styled-button view-button"><i class="fas fa-eye"></i></button>
 
                         </td>
-                    </!--tr>
+                    </tr>
 
                     <tr>
-                        <td>2</td>
-                        <td>Proveedor 2</td>
-                        <td>Departamento 2</td>
-                        <td>Descripción 2</td>
+                        <td>1</td>
                         <td>Fecha 2</td>
                         <td>Monto 2</td>
+                        <td>Creado por 2</td>
+                        <td>Fec creacion 2</td>
+                        <td>Modificado por 2</td>
+                        <td>Fec Modificacion 2</td>
                         <td>
                             <button class="styled-button edit-button"><i class="fas fa-edit"></i></button>
                             <button class="styled-button delete-button"><i class="fas fa-trash"></i></button>
                             <button class="styled-button view-button"><i class="fas fa-eye"></i></button>
 
                         </td>
-                    </tr-->
+                    </tr>
                     <!-- Agregar más filas de solicitudes aquí -->
-                <!--/tbody>
+                </tbody>
             </table>
             <div class="content">
                 <div class="table-container">
                     <table>
-                        <! Contenido de la tabla -->
+                        <!-- Contenido de la tabla -->
                     </table>
                 </div>
 
-                <!--?php
+                <?php
                 // Datos de ejemplo para la paginación
                 $totalSolicitudes = 50; // Total de registros en la base de datos
                 $registrosPorPagina = 10; // Número de registros por página
@@ -126,28 +130,28 @@
                 //     // Generar filas de la tabla
                 //     // ...
                 // }
-                ?-->
+                ?>
 
-                <!---div class="pagination">
-                    <!?php
+                <div class="pagination">
+                    <?php
                     // Botón de retroceso "<"
-                    //if ($paginaActual > 1) {
-                       // echo '<a href="?page=' . ($paginaActual - 1) . '"><i class="fas fa-chevron-left"></i></a>';
-                    //}
+                    if ($paginaActual > 1) {
+                        echo '<a href="?page=' . ($paginaActual - 1) . '"><i class="fas fa-chevron-left"></i></a>';
+                    }
 
                     // Generar enlaces de paginación
-                    //for ($i = 1; $i <= $totalPaginas; $i++) {
-                    //    echo '<a href="?page=' . $i . '" ' . ($i == $paginaActual ? 'class="current"' : '') . '>' . $i . '</a>';
-                    //}
+                    for ($i = 1; $i <= $totalPaginas; $i++) {
+                        echo '<a href="?page=' . $i . '" ' . ($i == $paginaActual ? 'class="current"' : '') . '>' . $i . '</a>';
+                    }
 
                     // Botón de avance ">"
-                    //if ($paginaActual < $totalPaginas) {
+                    if ($paginaActual < $totalPaginas) {
                         echo '<a href="?page=' . ($paginaActual + 1) . '"><i class="fas fa-chevron-right"></i></a>';
-                    //}
-                    ?-->
-                </!---div>
+                    }
+                    ?>
+                </div>
             </div>
-        </!--div>
+        </div>
     </div>
 </body>
 
