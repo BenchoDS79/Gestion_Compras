@@ -1,47 +1,114 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitudes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/estilos.css">
+    <title>MVC IHCI</title>
+
+    <link rel="stylesheet" href="/estilos.css">
+
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
-    <script src="/Js/estilos.js"></script>
+    
 </head>
 
 
-<body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <element class="logo">
-                <img src="/imagen/ihci.jfif">
-            </element>
-
-            <button class="menu-toggle" onclick="toggleSidebar()">&#9776;
-                <span class="menu-icon"></span>
-            </button>
+<body id="body">
+<header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
         </div>
-        <ul class="menu">
-            <li><a href="/index.php"><i class="fas fa-home"></i><span> Inicio</span></a></li>
-            <li><a href="#"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
-            <li><a href="/views/crear_solicitud.php"><i class="fas fa-plus"></i><span> Crear Solicitud</span></a></li>
-            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span> Cotizaciones</span></a></li>
-            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span> Proveedores</span></a></li>
-            <li><a href="#"><i class="fas fa-cubes"></i><span> Productos</span></a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i><span> Reportes</span></a></li>
-            <li><a href="#"><i class="fas fa-cog"></i><span> Settings</span></a></li>
-            <li><a href="#"><i class="fas fa-bell"></i><span> Mis Notificaciones</span></a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span> Salir</span></a></li>
-            <li>
-                <div><a href="#"><i class="fas fa-question-circle"></i><span> Help</span></a></div>
-            </li>
-        </ul>
+        <div class="centrar">
+            <h1>MVC IHCI</h1>
+        </div>
+        
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fa-solid fa-landmark"></i>
+            <h4>IHCI</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="/views/solicitudes.php"/>
+                <div class="option">
+                    <i class="fas fa-envelope" title="Solicitudes"></i>
+                    <h5>Solicitudes</h5>
+                </div>
+            </a>
+
+            <a href="/views/crear_solicitud.php">
+                <div class="option">
+                    <i class="fas fa-plus" title="Crear Solicitud"></i>
+                    <h5>Crear Solicitud</h5>
+                </div>
+            </a>
+            
+            <a href="/views/cotizaciones.php">
+                <div class="option">
+                    <i class="fas fa-file-alt" title="Cotizaciones"></i>
+                    <h5>Cotizaciones</h5>
+                </div>
+            </a>
+
+            <a href="/views/proveedores.php">
+                <div class="option">
+                    <i class="fas fa-users" title="Proveedores"></i>
+                    <h5>Proveedores</h5>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-cubes" title="Productos"></i>
+                    <h5>Productos</h5>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-chart-bar" title="Reportes"></i>
+                    <h5>Reportes</h5>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-cog" title="Settings"></i>
+                    <h5>Settings</h5>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-bell" title="Notificaciones"></i>
+                    <h5>Notificaciones</h5>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-sign-out-alt" title="Salir"></i>
+                    <h5>Salir</h5>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-question-circle" title="Ayuda"></i>
+                    <h5>Ayuda</h5>
+                </div>
+            </a>
+
+        </div>
+
     </div>
 
 
+    <maine>
     <h2 class="text-center">SOLICITUDES DE COMPRA</h2>
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
@@ -116,6 +183,7 @@
 
                 </tbody>
             </table>
+            
             <div class="content">
                 <div class="table-container">
                     <table>
@@ -166,8 +234,8 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
+                </maine>
+    <script src="script.js"></script>
 </body>
 
 </html>
