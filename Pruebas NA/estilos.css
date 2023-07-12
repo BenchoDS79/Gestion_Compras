@@ -141,11 +141,43 @@ a.selected{
 }
 
 body {
-    background-image: url('/imagen/background.jpg');
-    background-repeat: no-repeat;
-      background-position: top right;
-      background-size:70%;
-  }
+   background-image: url('/imagen/background.jpg');
+   background-repeat: no-repeat;
+   background-position: top right;
+   background-size:70%;
+}
+
+/* Estilos adicionales */
+.floating-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.floating-form .close-button {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #dc3545;
+}
+
+.floating-form .close-button:hover {
+    color: #721c24;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    justify-content: right;
+}
 
 /*Clases para usar en JavaScript*/
 
@@ -168,3 +200,4 @@ body {
         left: -70px;
     }
 }
+

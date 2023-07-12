@@ -108,31 +108,25 @@
                 </tbody>
             </table>
             <div class="content">
-                <div class="table-container">
-                    <table>
-                        <!-- Contenido de la tabla -->
-                    </table>
-                </div>
-
                 <?php
-                // Datos de ejemplo para la paginación
-                $totalSolicitudes = 50; // Total de registros en la base de datos
-                $registrosPorPagina = 10; // Número de registros por página
-                $totalPaginas = ceil($totalSolicitudes / $registrosPorPagina); // Cálculo del número total de páginas
+                    // Datos de ejemplo para la paginación
+                    $totalSolicitudes = 50; // Total de registros en la base de datos
+                    $registrosPorPagina = 10; // Número de registros por página
+                    $totalPaginas = ceil($totalSolicitudes / $registrosPorPagina); // Cálculo del número total de páginas
 
-                // Obtener el número de página actual (por ejemplo, a través de parámetro GET)
-                $paginaActual = isset($_GET['page']) ? $_GET['page'] : 1;
+                    // Obtener el número de página actual (por ejemplo, a través de parámetro GET)
+                    $paginaActual = isset($_GET['page']) ? $_GET['page'] : 1;
 
-                // Calcular el índice de inicio del primer registro en la página actual
-                $indiceInicio = ($paginaActual - 1) * $registrosPorPagina;
+                    // Calcular el índice de inicio del primer registro en la página actual
+                    $indiceInicio = ($paginaActual - 1) * $registrosPorPagina;
 
-                // Obtener los registros de la página actual de la base de datos (puedes ajustar esto según tu lógica y estructura de datos)
-                // $registros = obtenerRegistrosDesdeLaBaseDeDatos($indiceInicio, $registrosPorPagina);
+                    // Obtener los registros de la página actual de la base de datos (puedes ajustar esto según tu lógica y estructura de datos)
+                    //$registros = obtenerRegistrosDesdeLaBaseDeDatos($indiceInicio, $registrosPorPagina);
 
                 // Mostrar los registros en la tabla
                 // foreach ($registros as $registro) {
-                //     // Generar filas de la tabla
-                //     // ...
+                     // Generar filas de la tabla
+                     // ...
                 // }
                 ?>
 

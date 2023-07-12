@@ -37,3 +37,14 @@ window.addEventListener("resize", function(){
     }
 
 });
+
+function toggleFloatingForm() {
+    var floatingForm = document.getElementById('floatingForm');
+    if (floatingForm.style.display === 'none') {
+        floatingForm.style.display = 'table';
+    } else {
+        floatingForm.style.display = 'none';
+    }
+}
+
+

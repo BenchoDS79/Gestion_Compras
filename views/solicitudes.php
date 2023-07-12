@@ -1,114 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVC IHCI</title>
-
-    <link rel="stylesheet" href="/estilos.css">
-
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
-    
+    <script src="/Js/estilos.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        /* Estilos adicionales */
+        .floating-form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-form .close-button {
+            position: relative;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #dc3545;
+        }
+
+        .floating-form .close-button:hover {
+            color: #721c24;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            justify-content: right;
+        }
+    </style>
 </head>
 
 
-<body id="body">
-<header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <element class="logo">
+                <img src="/imagen/ihci.jfif">
+            </element>
+            <button class="menu-toggle" onclick="toggleSidebar()">&#9776;
+                <span class="menu-icon"></span>
+            </button>
         </div>
-        <div class="centrar">
-            <h1>MVC IHCI</h1>
-        </div>
-        
-    </header>
-
-    <div class="menu__side" id="menu_side">
-
-        <div class="name__page">
-            <i class="fa-solid fa-landmark"></i>
-            <h4>IHCI</h4>
-        </div>
-
-        <div class="options__menu">	
-
-            <a href="/views/solicitudes.php"/>
-                <div class="option">
-                    <i class="fas fa-envelope" title="Solicitudes"></i>
-                    <h5>Solicitudes</h5>
-                </div>
-            </a>
-
-            <a href="/views/crear_solicitud.php">
-                <div class="option">
-                    <i class="fas fa-plus" title="Crear Solicitud"></i>
-                    <h5>Crear Solicitud</h5>
-                </div>
-            </a>
-            
-            <a href="/views/cotizaciones.php">
-                <div class="option">
-                    <i class="fas fa-file-alt" title="Cotizaciones"></i>
-                    <h5>Cotizaciones</h5>
-                </div>
-            </a>
-
-            <a href="/views/proveedores.php">
-                <div class="option">
-                    <i class="fas fa-users" title="Proveedores"></i>
-                    <h5>Proveedores</h5>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-cubes" title="Productos"></i>
-                    <h5>Productos</h5>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-chart-bar" title="Reportes"></i>
-                    <h5>Reportes</h5>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-cog" title="Settings"></i>
-                    <h5>Settings</h5>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-bell" title="Notificaciones"></i>
-                    <h5>Notificaciones</h5>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-sign-out-alt" title="Salir"></i>
-                    <h5>Salir</h5>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="option">
-                    <i class="fas fa-question-circle" title="Ayuda"></i>
-                    <h5>Ayuda</h5>
-                </div>
-            </a>
-
-        </div>
-
+        <ul class="menu">
+            <li>
+                <a href="/index.php"><i class="fas fa-home"></i><span> Inicio </span></a>
+            </li>
+            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
+            <li><a href="/views/crear_solicitud.php"><i class="fas fa-plus"></i><span> Crear Solicitud</span></a></li>
+            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span> Cotizaciones</span></a></li>
+            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span> Proveedores</span></a></li>
+            <li><a href="#"><i class="fas fa-cubes"></i><span> Productos</span></a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i><span> Reportes</span></a></li>
+            <li><a href="#"><i class="fas fa-cog"></i><span> Settings</span></a></li>
+            <li><a href="#"><i class="fas fa-bell"></i><span> Mis Notificaciones</span></a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span> Salir</span></a></li>
+            <li>
+                <div><a href="#"><i class="fas fa-question-circle"></i><span> Help</span></a></div>
+            </li>
+        </ul>
     </div>
 
 
-    <maine>
     <h2 class="text-center">SOLICITUDES DE COMPRA</h2>
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
@@ -116,7 +84,7 @@
             <button class="pdf-button"><i class="fas fa-file-pdf"></i></button>
             <button class="excel-button"><i class="fas fa-file-excel"></i></button>
             <button class="print-button"><i class="fas fa-print"></i></button>
-            <button class="plus-button"><i class="fas fa-plus"></i></button>
+            <button class="plus-button" onclick="toggleFloatingForm()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Buscar...">
@@ -140,6 +108,8 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
+
                     <?php
                     $server = "localhost";
                     $username = "root";
@@ -171,9 +141,9 @@
                             <td>$row[MODIFICADO_POR]</td>
                             <td>$row[FECHA_MODIFICACION]</td>
                             <td>
-                                <button class='btn btn-warning'><i class='fas fa-edit'></i></button>
-                                <button class='btn btn-danger'><i class='fas fa-trash'></i></button>
-                                <button class='btn btn-success'><i class='fas fa-eye'></i></button>
+                            <button class='styled-button btn-warning edit-button'><i class='fas fa-edit'></i></button>
+                            <button class='styled-button btn-danger delete-button'><i class='fas fa-trash'></i></button>
+                            <button class='styled-button btn-success view-button'><i class='fas fa-eye'></i></button>
                             </td>
                         </tr>
                         ";
@@ -183,7 +153,7 @@
 
                 </tbody>
             </table>
-            
+
             <div class="content">
                 <div class="table-container">
                     <table>
@@ -234,8 +204,48 @@
             </div>
         </div>
     </div>
-                </maine>
-    <script src="script.js"></script>
+    <div class="floating-form" id="floatingForm" style="display: none;">
+
+
+        <h4>Agregar Solicitud de Compra</h4>
+
+        <form action="procesar_detalle.php" method="POST">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Numero de Solicitud</span>
+                <input type="text" class="form-control" id="CREADO_POR" name="numero_solicitud" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fecha Solicitud</span>
+                <input type="date" class="form-control" id="FECHA_SOLICITUD" name="fecha_solicitud" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Monto Total</span>
+                <input type="number" class="form-control" id="MONTO_TOTAL" name="monto_total" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Creado Por</span>
+                <input type="text" class="form-control" id="CREADO_POR" name="creado_por" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fecha Creacion</span>
+                <input type="date" class="form-control" id="FECHA_CREACION" name="fecha_creacion" required>
+            </div>
+            <!-- Aquí puedes agregar más campos del formulario según tus necesidades -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button class="btn btn-danger ml-auto" onclick="toggleFloatingForm()">Cerrar</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+    <script src="/script.js"></script>
+    <script src="/Js/script.js"></script>
 </body>
 
 </html>
