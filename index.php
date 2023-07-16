@@ -24,12 +24,11 @@
             </button>
         </div>
         <ul class="menu">
-            <li>
-                <a href="#"><i class="fas fa-home"></i><span> Inicio </span></a></li>
-            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
-            <li><a href="/views/crear_solicitud.php"><i class="fas fa-plus"></i><span> Crear Solicitud</span></a></li>
-            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span> Cotizaciones</span></a></li>
-            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span> Proveedores</span></a></li>
+            <li><a href="/index.php"><i class="fas fa-home"></i><span>  Inicio</span></a></li>
+            <li><a href=""><i class="fas fa-user"></i><span>  Usuarios</span></a></li>
+            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span>  Solicitudes</span></a></li>
+            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span>  Cotizaciones</span></a></li>
+            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span>  Proveedores</span></a></li>
             <li><a href="#"><i class="fas fa-cubes"></i><span> Productos</span></a></li>
             <li><a href="#"><i class="fas fa-chart-bar"></i><span> Reportes</span></a></li>
             <li><a href="#"><i class="fas fa-cog"></i><span> Settings</span></a></li>

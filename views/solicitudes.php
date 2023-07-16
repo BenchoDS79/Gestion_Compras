@@ -58,18 +58,16 @@
             </button>
         </div>
         <ul class="menu">
-            <li>
-                <a href="/index.php"><i class="fas fa-home"></i><span> Inicio </span></a>
-            </li>
-            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
-            <li><a href="/views/crear_solicitud.php"><i class="fas fa-plus"></i><span> Crear Solicitud</span></a></li>
-            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span> Cotizaciones</span></a></li>
-            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span> Proveedores</span></a></li>
-            <li><a href="#"><i class="fas fa-cubes"></i><span> Productos</span></a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i><span> Reportes</span></a></li>
-            <li><a href="#"><i class="fas fa-cog"></i><span> Settings</span></a></li>
-            <li><a href="#"><i class="fas fa-bell"></i><span> Mis Notificaciones</span></a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span> Salir</span></a></li>
+            <li><a href="/index.php"><i class="fas fa-home"></i><span> Inicio </span></a></li>
+            <li><a href=""><i class="fas fa-user"></i><span>  Usuarios</span></a></li>
+            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span>  Solicitudes</span></a></li>
+            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span>  Cotizaciones</span></a></li>
+            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span>  Proveedores</span></a></li>
+            <li><a href="#"><i class="fas fa-cubes"></i><span>  Productos</span></a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i><span>  Reportes</span></a></li>
+            <li><a href="#"><i class="fas fa-cog"></i><span>  Settings</span></a></li>
+            <li><a href="#"><i class="fas fa-bell"></i><span>  Mis Notificaciones</span></a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i><span>  Salir</span></a></li>
             <li>
                 <div><a href="#"><i class="fas fa-question-circle"></i><span> Help</span></a></div>
             </li>
@@ -81,7 +79,7 @@
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
         <div class="content" role="group" aria-label="First group">
-            <button class="pdf-button"><i class="fas fa-file-pdf"></i></button>
+       <button class="pdf-button"><i class="fas fa-file-pdf"></i></button>
             <button class="excel-button"><i class="fas fa-file-excel"></i></button>
             <button class="print-button"><i class="fas fa-print"></i></button>
             <button class="plus-button" onclick="toggleFloatingForm()"><i class="fas fa-plus"></i></button>
@@ -96,7 +94,7 @@
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
+                    <tr class="Cabecera-tabla">
                         <th>N Solicitud</th>
                         <th>Fecha</th>
                         <th>Monto Total</th>
@@ -107,9 +105,8 @@
                         <th>Opciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    
 
+                <tbody class="Contenido-tabla">
                     <?php
                     $server = "localhost";
                     $username = "root";
@@ -140,7 +137,7 @@
                             <td>$row[FECHA_CREACION]</td>
                             <td>$row[MODIFICADO_POR]</td>
                             <td>$row[FECHA_MODIFICACION]</td>
-                            <td>
+                            <td class='botones-tabla'>
                             <button class='styled-button btn-warning edit-button'><i class='fas fa-edit'></i></button>
                             <button class='styled-button btn-danger delete-button'><i class='fas fa-trash'></i></button>
                             <button class='styled-button btn-success view-button'><i class='fas fa-eye'></i></button>
@@ -185,25 +182,27 @@
 
                 <div class="pagination">
                     <?php
-                    // Botón de retroceso "<"
-                    if ($paginaActual > 1) {
-                        echo '<a href="?page=' . ($paginaActual - 1) . '"><i class="fas fa-chevron-left"></i></a>';
-                    }
+                        // Botón de retroceso "<"
+                        if ($paginaActual > 1) {
+                            echo '<a href="?page=' . ($paginaActual - 1) . '"><i class="fas fa-chevron-left"></i></a>';
+                        }
 
-                    // Generar enlaces de paginación
-                    for ($i = 1; $i <= $totalPaginas; $i++) {
-                        echo '<a href="?page=' . $i . '" ' . ($i == $paginaActual ? 'class="current"' : '') . '>' . $i . '</a>';
-                    }
+                        // Generar enlaces de paginación
+                        for ($i = 1; $i <= $totalPaginas; $i++) {
+                            echo '<a href="?page=' . $i . '" ' . ($i == $paginaActual ? 'class="current"' : '') . '>' . $i . '</a>';
+                        }
 
-                    // Botón de avance ">"
-                    if ($paginaActual < $totalPaginas) {
-                        echo '<a href="?page=' . ($paginaActual + 1) . '"><i class="fas fa-chevron-right"></i></a>';
-                    }
+                        // Botón de avance ">"
+                        if ($paginaActual < $totalPaginas) {
+                            echo '<a href="?page=' . ($paginaActual + 1) . '"><i class="fas fa-chevron-right"></i></a>';
+                        }
                     ?>
                 </div>
             </div>
         </div>
     </div>
+
+
     <div class="floating-form" id="floatingForm" style="display: none;">
 
 
@@ -235,17 +234,18 @@
                 <span class="input-group-text" id="basic-addon1">Fecha Creacion</span>
                 <input type="date" class="form-control" id="FECHA_CREACION" name="fecha_creacion" required>
             </div>
-            <!-- Aquí puedes agregar más campos del formulario según tus necesidades -->
+
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="submit" class="btn btn-primary">Agregar</button>
                 <button class="btn btn-danger ml-auto" onclick="toggleFloatingForm()">Cerrar</button>
             </div>
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-    <script src="/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="/Js/script.js"></script>
+    <script src="/Js/estilos.js"></script>
 </body>
 
 </html>

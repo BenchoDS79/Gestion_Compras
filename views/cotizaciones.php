@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizaciones</title>
     <link rel="stylesheet" href="/css/estilos_cotizacion.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/860e3c70ee.js" crossorigin="anonymous"></script>
     <script src="/Js/estilos.js"></script>
 </head>
@@ -25,10 +26,10 @@
         </div>
         <ul class="menu">
             <li><a href="/index.php"><i class="fas fa-home"></i><span> Inicio</span></a></li>
-            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span> Solicitudes</span></a></li>
-            <li><a href="/views/crear_solicitud.php"><i class="fas fa-plus"></i><span> Crear Solicitud</span></a></li>
-            <li><a href="#"><i class="fas fa-file-alt"></i><span> Cotizaciones</span></a></li>
-            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span> Proveedores</span></a></li>
+            <li><a href=""><i class="fas fa-user"></i><span>  Usuarios</span></a></li>
+            <li><a href="/views/solicitudes.php"><i class="fas fa-envelope"></i><span>  Solicitudes</span></a></li>
+            <li><a href="/views/cotizaciones.php"><i class="fas fa-file-alt"></i><span>  Cotizaciones</span></a></li>
+            <li><a href="/views/proveedores.php"><i class="fas fa-users"></i><span>  Proveedores</span></a></li>
             <li><a href="#"><i class="fas fa-cubes"></i><span> Productos</span></a></li>
             <li><a href="#"><i class="fas fa-chart-bar"></i><span> Reportes</span></a></li>
             <li><a href="#"><i class="fas fa-cog"></i><span> Settings</span></a></li>
@@ -57,12 +58,12 @@
 
         <div class="table-container">
             <table>
-                <thead>
+                <thead >
                     <tr>
-                        <th>Nombre</th>
-                        <th>Direccion</th>
-                        <th>Telefono</th>
-                        <th>Correo</th>
+                        <th>Id Proveedor</th>
+                        <th>Numero Cotizacon</th>
+                        <th>Fecha Cotizacion</th>
+                        <th>Monto Total</th>
                         <th>Creado por</th>
                         <th>Fec Creacion</th>
                         <th>Modificado por</th>
@@ -71,40 +72,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>fecha 1</td>
-                        <td>Monto 1</td>
-                        <td>Creado por 1</td>
-                        <td>Fec creacion 1</td>
-                        <td>Modificado por 1</td>
-                        <td>Fec Modificacion 1</td>
-                        <td>
-                            <button class="styled-button edit-button"><i class="fas fa-edit"></i></button>
-                            <button class="styled-button delete-button"><i class="fas fa-trash"></i></button>
-                            <button class="styled-button view-button"><i class="fas fa-eye"></i></button>
+                    
 
-                        </td>
-                    </tr>
+                    <?php
+                    $server = "localhost";
+                    $username = "root";
+                    $password = "rads123";
+                    $dbname = "gestion_compras";
+                    // Create connection
+                    $conn = new mysqli($server, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    echo "Connected successfully";
 
-                    <tr>
-                    <td>1</td>
-                        <td>1</td>
-                        <td>fecha 1</td>
-                        <td>Monto 1</td>
-                        <td>Creado por 1</td>
-                        <td>Fec creacion 1</td>
-                        <td>Modificado por 1</td>
-                        <td>Fec Modificacion 1</td>
-                        <td>
-                            <button class="styled-button edit-button"><i class="fas fa-edit"></i></button>
-                            <button class="styled-button delete-button"><i class="fas fa-trash"></i></button>
-                            <button class="styled-button view-button"><i class="fas fa-eye"></i></button>
+                    $sql = "SELECT * FROM tbl_cotizacion";
+                    $result = $conn->query($sql);
 
-                        </td>
-                    </tr>
-                    <!-- Agregar más filas de solicitudes aquí -->
+                    if (!$result) {
+                        die("Invalid Query:" . $connection->error);
+                    }
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "
+                        <tr>
+                            <td>$row[ID_PROVEEDOR]</td>
+                            <td>$row[NUMERO_COTIZACION]</td>
+                            <td>$row[FECHA_COTIZACION]</td>
+                            <td>$row[MONTO_TOTAL]</td>
+                            <td>$row[CREADO_POR]</td>
+                            <td>$row[FECHA_CREACION]</td>
+                            <td>$row[MODIFICADO_POR]</td>
+                            <td>$row[FECHA_MODIFICACION]</td>
+                            <td>
+                            <button class='styled-button btn-warning edit-button'><i class='fas fa-edit'></i></button>
+                            <button class='styled-button btn-danger delete-button'><i class='fas fa-trash'></i></button>
+                            <button class='styled-button btn-success view-button'><i class='fas fa-eye'></i></button>
+                            </td>
+                        </tr>
+                        ";
+                    }
+                    ?>
+
+
                 </tbody>
             </table>
             <div class="content">
@@ -151,6 +162,7 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 
 </html>
